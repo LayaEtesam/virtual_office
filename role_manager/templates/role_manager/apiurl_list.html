@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'role_manager_apiurl_list' %}">ApiUrl Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>created</td>
+    <td>last_updated</td>
+    <td>url</td>
+    <td>action</td>
+    <td>description</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.created }}</td>
+    <td>{{ object.last_updated }}</td>
+    <td>{{ object.url }}</td>
+    <td>{{ object.action }}</td>
+    <td>{{ object.description }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'role_manager_apiurl_create' %}">Create new ApiUrl</a>
+{% endblock %}

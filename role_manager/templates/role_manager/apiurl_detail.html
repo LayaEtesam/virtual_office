@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'role_manager_apiurl_list' %}">ApiUrl Listing</a></p>
+<table class="table">
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+<tr><td>url</td><td>{{ object.url }}</td></tr>
+<tr><td>action</td><td>{{ object.action }}</td></tr>
+<tr><td>description</td><td>{{ object.description }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit ApiUrl</a>
+
+{% endblock %}
